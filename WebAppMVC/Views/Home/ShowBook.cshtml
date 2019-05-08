@@ -1,0 +1,39 @@
+﻿@model WebAppMVC.Models.Book
+
+@{
+    ViewBag.Title = "ShowBook";
+}
+
+@helper ShowBookInfo(WebAppMVC.Models.Book book)
+{
+    <h2>Show Book</h2>
+
+    <label>Название: @Model.Title</label> <br />
+    <label>Автор: @Model.Author</label> <br />
+    <label>Цена: @Model.Price</label> <br />
+
+    using (Html.BeginForm("Buy", "Home", FormMethod.Post))
+    {
+        <input type="submit" value="Buy" />
+    }
+}
+@*@ShowBookInfo(Model)*@
+
+<h2>Show Book</h2>
+
+@Html.LabelFor(f => f.Title)
+@Html.DisplayFor(f => f.Title)
+<br />
+@Html.LabelFor(f => f.Author)
+@Html.DisplayFor(f => f.Author)
+<br />
+@Html.LabelFor(f => f.Price)
+@Html.DisplayFor(f => f.Price)
+<br />
+
+<label>Название: @Model.Title</label> <br />
+<label>Автор: @Model.Author</label> <br />
+<label>Цена: @Model.Price</label> <br />
+
+
+@Html.Partial("ShowPartialView")
