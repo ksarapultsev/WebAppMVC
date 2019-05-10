@@ -1,0 +1,9 @@
+﻿@model HomeWork1.Models.Employee
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.DropDownList("Author", ViewBag.Employees as SelectList)
+@Html.DropDownList("countires", new SelectList(new string[] { "Russia", "USA", "Canada", "France" }), "Countries")

@@ -1,0 +1,56 @@
+﻿@model WebApp3.Models.HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<h1>Products</h1>
+<div>
+    <p>@Html.ActionLink("Add new Product", "CreateProuduct", "Home")</p>
+    <table>
+        <tr>
+            <th><p>Id </p></th>
+            <th><p>Name </p></th>
+            <th><p>Price </p></th>
+            <th><p>Actions </p></th>
+        </tr>
+        @foreach (var p in Model.Products)
+        {
+            <tr>
+                <td><p>@p.Id </p></td>
+                <td><p>@p.Name </p></td>
+                <td><p>@p.Price </p></td>
+                @{
+                    var routeValues = new RouteValueDictionary();
+                    routeValues.Add("Id", p.Id);
+
+                    var attributes = new Dictionary<string, object>();
+                    attributes.Add("Id", p.Id);
+                }
+                <td>
+                    @Html.ActionLink("View", "ShowProduct", "Home", routeValues, attributes)
+                    @Html.ActionLink("Delete", "DeleteProduct", "Home", routeValues, attributes)
+                    @Html.ActionLink("Edit", "EditProduct", "Home", routeValues, attributes)
+                    @Html.ActionLink("Buy", "BuyProduct", "Home", routeValues, attributes)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<h1>Purchases</h1>
+<div>
+    <table>
+        <tr>
+            <th><p>Id</p></th>
+            <th><p>Date</p></th>
+            <th><p>Product Name</p></th>            
+        </tr>
+        @foreach (var p in Model.Purchases)
+        {
+            <tr>
+                <td><p>@p.Id</p></td>
+                <td><p>@p.Date</p></td>
+                <td><p>@p.Product.Name</p></td>
+                
+            </tr>
+        }
+    </table>
+</div>

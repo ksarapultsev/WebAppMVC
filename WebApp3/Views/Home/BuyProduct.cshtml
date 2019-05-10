@@ -1,0 +1,17 @@
+﻿@model WebApp3.Models.Product
+@{
+    ViewBag.Title = "BuyProduct";
+}
+<h2>Buy Product</h2>
+@{ 
+    var routeValues = new RouteValueDictionary();
+    routeValues.Add("Id", Model.Id);
+}
+@using (Html.BeginForm("CreatePurchase", "Home", routeValues, FormMethod.Post))
+{
+    @Html.DisplayForModel()
+
+    <p>
+        <input type="submit" value="Buy Product" />
+    </p>
+}

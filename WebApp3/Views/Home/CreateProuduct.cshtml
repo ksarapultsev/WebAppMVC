@@ -1,0 +1,19 @@
+﻿@model WebApp3.Models.Product
+@{
+    ViewBag.Title = "CreateProuduct";
+}
+
+<h2>Create new Prouduct</h2>
+@using(Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name, "Product Name")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    <br />
+    @Html.LabelFor(model => model.Price, "Price")
+    <br />
+    @Html.EditorFor(model => model.Price)
+    <input type="submit" value="Add" />
+
+}
+
